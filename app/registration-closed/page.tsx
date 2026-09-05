@@ -27,12 +27,16 @@ Best regards,
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-red-50 to-orange-50">
       {/* Header */}
       <header className="container mx-auto px-4 py-6 flex justify-center items-center">
-        <div>
+        <div className="flex items-center gap-4">
           <img 
-            src="/cmda-small-logo.png" 
+            src="/ifehl-logo-new.png" 
             alt="IfEHL Logo" 
             className="h-16 sm:h-20 md:h-24 w-auto object-contain" 
           />
+          <div className="text-purple-800 font-bold text-sm sm:text-base leading-tight">
+            <div>INSTITUTE FOR EXCELLENCE IN</div>
+            <div>HEALTHCARE AND LEADERSHIP</div>
+          </div>
         </div>
       </header>
 

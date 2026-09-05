@@ -6,35 +6,35 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "IFEHL 2025 (03) - Christian Medical Leadership Training",
-  description: "Join us for a transformative experience of practical management and learning for Christian doctors - IFEHL 2025, November 16-23rd at Wholeness House, Gwagalada, Abuja",
+  title: "IfEHL - Institute for Excellence In Healthcare and Leadership",
+  description: "Institute for Excellence In Healthcare and Leadership - Register for upcoming campaigns and events",
   generator: 'Next.js',
-  keywords: ["IFEHL", "IfEHL", "Christian medical", "leadership training", "medical conference", "Abuja 2025"],
+  keywords: ["IFEHL", "IfEHL", "healthcare", "leadership training", "medical conference"],
   authors: [{ name: "IfEHL" }],
   creator: "IfEHL",
   publisher: "IfEHL",
   icons: {
     icon: [
       {
-        url: "/IfHEL. Logo.png",
+        url: "/ifehl-logo-new.png",
         type: "image/png",
       },
     ],
-    shortcut: "/IfHEL. Logo.png",
-    apple: "/IfHEL. Logo.png",
+    shortcut: "/ifehl-logo-new.png",
+    apple: "/ifehl-logo-new.png",
   },
-  metadataBase: new URL('https://ifehl.cmdanigeria.org'), // Replace with your actual domain
+  metadataBase: new URL('https://ifehl.cmdanigeria.org'),
   openGraph: {
-    title: "IFEHL 2025 (03) - Christian Medical Leadership Training",
-    description: "Join us for a transformative experience of practical management and learning for Christian doctors - IFEHL 2025, November 16-23rd at Wholeness House, Gwagalada, Abuja",
+    title: "IfEHL - Institute for Excellence In Healthcare and Leadership",
+    description: "Institute for Excellence In Healthcare and Leadership - Register for upcoming campaigns and events",
     url: 'https://ifehl.cmdanigeria.org',
-    siteName: 'IFEHL 2025',
+    siteName: 'IfEHL',
     images: [
       {
-        url: "/IfHEL. Logo.png",
+        url: "/ifehl-logo-new.png",
         width: 1200,
         height: 630,
-        alt: "IFEHL 2025 (03) - Christian Medical Leadership Training"
+        alt: "IfEHL - Institute for Excellence In Healthcare and Leadership"
       }
     ],
     locale: "en_US",
@@ -42,10 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IFEHL 2025 (03) - Christian Medical Leadership Training",
-    description: "Join us for a transformative experience of practical management and learning for Christian doctors - IFEHL 2025, November 16-23rd at Wholeness House, Gwagalada, Abuja",
-    images: ["/IfHEL. Logo.png"],
-    creator: "@cmdanigeria",
+    title: "IfEHL - Institute for Excellence In Healthcare and Leadership",
+    description: "Institute for Excellence In Healthcare and Leadership - Register for upcoming campaigns and events",
+    images: ["/ifehl-logo-new.png"],
   },
   robots: {
     index: true,

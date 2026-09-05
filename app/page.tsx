@@ -34,10 +34,14 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img 
-                src="/IfHEL. Logo.png" 
+                src="/ifehl-logo-new.png" 
                 alt="IFEHL" 
                 className="h-12 sm:h-16 w-auto object-contain" 
               />
+              <div className="text-purple-800 font-bold text-sm sm:text-base leading-tight">
+                <div>INSTITUTE FOR EXCELLENCE IN</div>
+                <div>HEALTHCARE AND LEADERSHIP</div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,7 +140,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t">
+                  <div className="flex items-center justify-between pt-4">
                     <div className="text-purple-700 font-bold">
                       ₦{Number(campaign.registration_fee).toLocaleString()}
                     </div>

@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'IFEHL 2025 (03) - Christian Medical Leadership Training',
-    short_name: 'IFEHL 2025',
-    description: 'Join us for a transformative experience of practical management and learning for Christian doctors - IFEHL 2025, November 16-23rd at Wholeness House, Gwagalada, Abuja',
+    name: 'IfEHL - Institute for Excellence In Healthcare and Leadership',
+    short_name: 'IfEHL',
+    description: 'Institute for Excellence In Healthcare and Leadership - Register for upcoming campaigns and events',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
@@ -13,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['medical', 'education', 'conferences'],
     icons: [
       {
-        src: '/IfHEL. Logo.png',
+        src: '/ifehl-logo-new.png',
         sizes: 'any',
         type: 'image/png',
       },

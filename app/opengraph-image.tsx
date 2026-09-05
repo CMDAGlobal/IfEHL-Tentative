@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 
 // Image metadata
-export const alt = 'IFEHL 2025 (03) - Christian Medical Leadership Training'
+export const alt = 'IfEHL - Institute for Excellence In Healthcare and Leadership'
 export const size = {
   width: 1200,
   height: 630,
@@ -74,7 +74,7 @@ export default async function Image() {
             }}
           >
             <img
-              src="/IfHEL. Logo.png"
+              src="/ifehl-logo-new.png"
               alt="IFEHL Logo"
               style={{
                 width: '100px',
@@ -94,7 +94,7 @@ export default async function Image() {
               lineHeight: '1.1',
             }}
           >
-            IFEHL 2025 (03)
+            IfEHL
           </div>
 
           {/* Subtitle */}
@@ -106,30 +106,9 @@ export default async function Image() {
               lineHeight: '1.3',
             }}
           >
-            Christian Medical Leadership Training
+            Institute for Excellence In Healthcare and Leadership
           </div>
 
-          {/* Event Details */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              fontSize: '24px',
-              color: '#4b5563',
-              lineHeight: '1.4',
-            }}
-          >
-            <div style={{ marginBottom: '10px' }}>
-              📅 November 16-23, 2025
-            </div>
-            <div style={{ marginBottom: '10px' }}>
-              📍 Wholeness House, Gwagalada, Abuja
-            </div>
-            <div>
-              🏥 IfEHL
-            </div>
-          </div>
         </div>
       </div>
     ),
