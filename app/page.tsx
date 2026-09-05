@@ -60,7 +60,7 @@ export default function Home() {
       {/* Campaigns Section */}
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Active Events</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Register for the Next Cohort</h3>
           <p className="text-gray-600">Select an event to register</p>
         </div>
 
