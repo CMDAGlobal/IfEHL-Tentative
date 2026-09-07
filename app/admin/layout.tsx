@@ -7,15 +7,12 @@ import {
   Home,
   Calendar,
   Users,
-  FileText,
   Mail,
-  Settings,
   LogOut,
   Menu,
   X,
   ChevronLeft,
-  ChevronRight,
-  BarChart3
+  ChevronRight
 } from "lucide-react"
 import { Toaster } from "@/components/ui/toaster"
 
@@ -52,8 +49,6 @@ export default function AdminLayout({
     { name: "Campaigns", href: "/admin/campaigns", icon: Calendar },
     { name: "Registrations", href: "/admin/full-details", icon: Users },
     { name: "Email Settings", href: "/admin/email-settings", icon: Mail },
-    { name: "Reports", href: "/admin/reports", icon: BarChart3 },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
   ]
 
   const isActive = (href: string) => {
