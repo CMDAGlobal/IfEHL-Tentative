@@ -20,7 +20,7 @@ export default function SuccessPage({ registrationId, participantName, email, on
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Registration Successful!</h2>
           <p className="text-gray-600 max-w-md text-sm sm:text-base">
-            Thank you for registering for IFEHL 2025. Your registration has been received.
+            Thank you for registering for IFEHL 2026. Your registration has been received.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function SuccessPage({ registrationId, participantName, email, on
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Event Date:</span>
-                  <span className="font-semibold">7-14th June, 2025</span>
+                  <span className="font-semibold">7-14th June, 2026</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Venue:</span>

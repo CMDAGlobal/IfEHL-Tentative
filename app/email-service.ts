@@ -66,7 +66,7 @@ function formatCampaignDates(campaignData?: CampaignEmailData) {
 }
 
 function formatPaymentDeadline(campaignData?: CampaignEmailData) {
-  if (!campaignData?.registration_deadline) return 'October 31st, 2025'
+  if (!campaignData?.registration_deadline) return 'October 31st, 2026'
 
   try {
     const deadline = new Date(campaignData.registration_deadline)
@@ -77,7 +77,7 @@ function formatPaymentDeadline(campaignData?: CampaignEmailData) {
     console.error('Error formatting payment deadline:', dateError)
   }
 
-  return 'October 31st, 2025'
+  return 'October 31st, 2026'
 }
 
 function formatCurrency(value?: number) {
@@ -93,7 +93,7 @@ function buildTemplateValues(args: {
   campaignData?: CampaignEmailData
 }) {
   const { to, firstName, registrationId, fullName, campaignData } = args
-  const campaignTitle = campaignData?.title || 'IFEHL 2025'
+  const campaignTitle = campaignData?.title || 'IFEHL 2026'
   const contactPhone = campaignData?.contact_phone || '08091533339'
 
   return {
@@ -107,7 +107,7 @@ function buildTemplateValues(args: {
       day: 'numeric',
     }),
     campaignTitle,
-    campaignDates: formatCampaignDates(campaignData) || '16-23rd November, 2025',
+    campaignDates: formatCampaignDates(campaignData) || '16-23rd November, 2026',
     campaignVenue: campaignData?.location || 'Wholeness House, Gwagalada, Abuja',
     registrationFee: formatCurrency(campaignData?.registration_fee),
     registrationFeeRaw: String(campaignData?.registration_fee ?? 50000),
@@ -195,7 +195,7 @@ export async function sendConfirmationEmail(
         registrationId,
         fullName,
         email: to,
-        campaignTitle: campaignData?.title || 'IFEHL 2025',
+        campaignTitle: campaignData?.title || 'IFEHL 2026',
         campaignDates: values.campaignDates,
         campaignVenue: campaignData?.location,
         registrationFee: campaignData?.registration_fee,

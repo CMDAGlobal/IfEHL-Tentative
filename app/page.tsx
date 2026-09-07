@@ -66,7 +66,7 @@ export default function Home() {
             <span className="text-white/90 text-sm font-medium">Registration Open</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight">
-            IfEHL <span className="text-green-300">2025</span>
+            IfEHL <span className="text-green-300">2026</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/80 max-w-xl mx-auto">
             Building the next generation of Christian healthcare leaders
