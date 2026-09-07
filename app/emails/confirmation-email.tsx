@@ -61,7 +61,7 @@ export const ConfirmationEmail: React.FC<ConfirmationEmailProps> = ({
       borderRadius: '8px 8px 0 0'
     }}>
       <img 
-        src={logoUrl || 'https://ifehl.cmdanigeria.org/IfHEL.%20Logo.png'} 
+        src={logoUrl || 'https://ifehl.cmdanigeria.org/ifehl-logo-new.png'} 
         alt="IFEHL Logo" 
         style={{ 
           height: '60px', 

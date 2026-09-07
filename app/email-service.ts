@@ -120,7 +120,7 @@ function buildTemplateValues(args: {
     whatsappGroupLink: campaignData?.whatsapp_group_link || 'https://chat.whatsapp.com/DA2iIYHr332EMknkfoWyIr?mode=gi_t',
     paymentInstructions: campaignData?.payment_instructions || `Add ${campaignTitle} to your transfer narration when making payment`,
     paymentDeadline: formatPaymentDeadline(campaignData),
-    logoUrl: campaignData?.logo_image_url || campaignData?.banner_image_url || 'https://ifehl.cmdanigeria.org/IfHEL.%20Logo.png',
+    logoUrl: campaignData?.logo_image_url || campaignData?.banner_image_url || 'https://ifehl.cmdanigeria.org/ifehl-logo-new.png',
     currentYear: String(new Date().getFullYear()),
   }
 }

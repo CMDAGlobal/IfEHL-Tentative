@@ -54,7 +54,7 @@ export const ApprovalEmail: React.FC<ApprovalEmailProps> = ({
       marginBottom: '20px',
     }}>
       <img 
-        src={logoUrl || 'https://ifehl.cmdanigeria.org/IfHEL.%20Logo.png'} 
+        src={logoUrl || 'https://ifehl.cmdanigeria.org/ifehl-logo-new.png'} 
         alt="IFEHL Logo" 
         style={{
           maxWidth: '150px',
