@@ -46,12 +46,7 @@ export default function Home() {
                 <div>HEALTHCARE AND LEADERSHIP</div>
               </div>
             </div>
-            <Link
-              href="/admin"
-              className="text-sm text-gray-500 hover:text-purple-700 transition-colors"
-            >
-              Admin
-            </Link>
+
           </div>
         </div>
       </header>
@@ -63,13 +58,13 @@ export default function Home() {
         <div className="relative container mx-auto px-4 py-20 sm:py-28 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            <span className="text-white/90 text-sm font-medium">Registration Open</span>
+            <span className="text-white/90 text-sm font-medium">Registration is open</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight">
-            IfEHL <span className="text-green-300">2026</span>
+            IfEHL
           </h1>
           <p className="text-lg sm:text-xl text-white/80 max-w-xl mx-auto">
-            Building the next generation of Christian healthcare leaders
+            Raising healthcare leaders who embody compassion, competence and character
           </p>
         </div>
       </section>
@@ -112,20 +107,13 @@ export default function Home() {
                   <div className="w-full h-full bg-gradient-to-r from-purple-700 to-green-600"></div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  {campaign.logo_image_url && (
-                    <img 
-                      src={campaign.logo_image_url} 
-                      alt={campaign.title}
-                      className="h-14 w-auto bg-white rounded-xl p-1.5 shadow-lg" 
-                    />
-                  )}
+                <div className="absolute bottom-4 right-4">
                   <div className={`px-3 py-1.5 rounded-full text-xs font-bold ${
                     campaign.is_registration_open 
                       ? 'bg-green-500 text-white' 
                       : 'bg-red-500 text-white'
                   }`}>
-                    {campaign.is_registration_open ? 'Registration Open' : 'Closed'}
+                    {campaign.is_registration_open ? 'Registration is open' : 'Closed'}
                   </div>
                 </div>
               </div>

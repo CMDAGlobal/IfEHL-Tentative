@@ -28,7 +28,7 @@ export const ConfirmationEmail: React.FC<ConfirmationEmailProps> = ({
   registrationId,
   fullName,
   email,
-  campaignTitle = 'IFEHL 2026',
+  campaignTitle = 'IFEHL',
   campaignDates = '16-23rd November, 2026',
   campaignVenue = 'Wholeness House, Gwagalada, Abuja',
   registrationFee = 50000,

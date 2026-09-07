@@ -24,7 +24,7 @@ interface ApprovalEmailProps {
 export const ApprovalEmail: React.FC<ApprovalEmailProps> = ({
   firstName,
   registrationId,
-  campaignTitle = 'IFEHL 2026',
+  campaignTitle = 'IFEHL',
   campaignDates = '16-23rd November, 2026',
   campaignVenue = 'Wholeness House, Gwagalada, Abuja',
   registrationFee = 50000,

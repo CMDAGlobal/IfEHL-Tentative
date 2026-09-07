@@ -93,7 +93,7 @@ function buildTemplateValues(args: {
   campaignData?: CampaignEmailData
 }) {
   const { to, firstName, registrationId, fullName, campaignData } = args
-  const campaignTitle = campaignData?.title || 'IFEHL 2026'
+  const campaignTitle = campaignData?.title || 'IFEHL'
   const contactPhone = campaignData?.contact_phone || '08091533339'
 
   return {
@@ -195,7 +195,7 @@ export async function sendConfirmationEmail(
         registrationId,
         fullName,
         email: to,
-        campaignTitle: campaignData?.title || 'IFEHL 2026',
+        campaignTitle: campaignData?.title || 'IFEHL',
         campaignDates: values.campaignDates,
         campaignVenue: campaignData?.location,
         registrationFee: campaignData?.registration_fee,

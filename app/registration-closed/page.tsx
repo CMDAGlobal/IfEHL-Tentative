@@ -6,10 +6,10 @@ import { Button } from "../../components/ui/button"
 
 export default function RegistrationClosedPage() {
   const handleContactClick = () => {
-    const subject = encodeURIComponent("IFEHL 2026 Registration Inquiry")
-    const body = encodeURIComponent(`Dear IFEHL Team,
+    const subject = encodeURIComponent("IfEHL Registration Inquiry")
+    const body = encodeURIComponent(`Dear IfEHL Team,
 
-I am writing to inquire about the IFEHL 2026 registration. I noticed that the registration period has closed, but I am very interested in participating in this event.
+I am writing to inquire about the IfEHL registration. I noticed that the registration period has closed, but I am very interested in participating in this event.
 
 Could you please let me know if there are any possibilities for late registration or if I can be added to a waiting list?
 
@@ -60,7 +60,7 @@ Best regards,
             </div>
             
             <p className="text-gray-700 text-xl mb-6 leading-relaxed">
-              Unfortunately, the registration period for <strong>IFEHL 2026</strong> has ended. 
+              Unfortunately, the registration period for <strong>IfEHL</strong> has ended. 
               We're sorry you missed the deadline, but don't worry - we might still be able to help!
             </p>
 

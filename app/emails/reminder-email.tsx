@@ -23,7 +23,7 @@ interface ReminderEmailProps {
 export const ReminderEmail: React.FC<ReminderEmailProps> = ({
   firstName,
   registrationId,
-  campaignTitle = 'IFEHL 2026',
+  campaignTitle = 'IFEHL',
   campaignDates = '16-23rd November, 2026',
   campaignVenue = 'Wholeness House, Gwagalada, Abuja',
   registrationFee = 50000,
