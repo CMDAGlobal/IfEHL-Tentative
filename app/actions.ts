@@ -269,14 +269,14 @@ export async function trackEmailSent(registrationId: number, emailType: 'approva
   try {
     const sql = neon(process.env.DATABASE_URL!)
     await sql`
-      INSERT INTO email_tracking (registration_id, email_type, sent_at)
+      INSERT INTO campaign_email_tracking (registration_id, email_type, sent_at)
       VALUES (${registrationId}, ${emailType}, NOW())
     `
     revalidatePath('/admin/full-details')
     return { success: true }
   } catch (error) {
     console.error("Error tracking email:", error)
-    throw new Error("Failed to track email")
+    return { success: false }
   }
 }
 
@@ -285,7 +285,7 @@ export async function checkEmailSent(registrationId: number, emailType: 'approva
   try {
     const sql = neon(process.env.DATABASE_URL!)
     const result = await sql`
-      SELECT * FROM email_tracking
+      SELECT * FROM campaign_email_tracking
       WHERE registration_id = ${registrationId}
       AND email_type = ${emailType}
       ORDER BY sent_at DESC
@@ -303,7 +303,7 @@ export async function getSentEmails(registrationId: number) {
   try {
     const sql = neon(process.env.DATABASE_URL!)
     const result = await sql`
-      SELECT * FROM email_tracking
+      SELECT * FROM campaign_email_tracking
       WHERE registration_id = ${registrationId}
       ORDER BY sent_at DESC
     `
@@ -336,7 +336,7 @@ export async function fetchAllRegistrationsWithDetails() {
         registration_id,
         email_type,
         MAX(sent_at) as last_sent_at
-      FROM email_tracking
+      FROM campaign_email_tracking
       GROUP BY registration_id, email_type
     `
     

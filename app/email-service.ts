@@ -215,10 +215,14 @@ export async function sendConfirmationEmail(
       }),
     });
 
-    // Track that the email was sent (skip for test IDs)
-    const numericId = parseInt(registrationId);
-    if (!isNaN(numericId)) {
-      await trackEmailSent(numericId, 'confirmation' as any);
+    // Track that the email was sent (skip for test IDs, don't block on failure)
+    try {
+      const numericId = parseInt(registrationId);
+      if (!isNaN(numericId)) {
+        await trackEmailSent(numericId, 'confirmation' as any);
+      }
+    } catch (trackingError) {
+      console.error('Email sent but tracking failed:', trackingError);
     }
 
     return { success: true, data };
@@ -274,10 +278,14 @@ export async function sendApprovalEmail(
       }),
     });
 
-    // Track that the email was sent (skip for test IDs)
-    const numericId = parseInt(registrationId);
-    if (!isNaN(numericId)) {
-      await trackEmailSent(numericId, 'approval');
+    // Track that the email was sent (skip for test IDs, don't block on failure)
+    try {
+      const numericId = parseInt(registrationId);
+      if (!isNaN(numericId)) {
+        await trackEmailSent(numericId, 'approval');
+      }
+    } catch (trackingError) {
+      console.error('Email sent but tracking failed:', trackingError);
     }
 
     return { success: true, data };
@@ -331,10 +339,14 @@ export async function sendReminderEmail(
       }),
     });
 
-    // Track that the email was sent (skip for test IDs)
-    const numericId = parseInt(registrationId);
-    if (!isNaN(numericId)) {
-      await trackEmailSent(numericId, 'reminder');
+    // Track that the email was sent (skip for test IDs, don't block on failure)
+    try {
+      const numericId = parseInt(registrationId);
+      if (!isNaN(numericId)) {
+        await trackEmailSent(numericId, 'reminder');
+      }
+    } catch (trackingError) {
+      console.error('Email sent but tracking failed:', trackingError);
     }
 
     return { success: true, data };
