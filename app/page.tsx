@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Calendar, MapPin, ArrowRight } from "lucide-react"
+import { Calendar, MapPin, ArrowRight, Users, Clock } from "lucide-react"
 import { fetchPublishedCampaigns } from "./campaigns/actions"
 import type { Campaign } from "./campaigns/actions"
 
@@ -26,140 +26,185 @@ export default function Home() {
     }
   }
 
+  const activeCampaign = campaigns.find(c => c.is_registration_open)
+  const campaign = activeCampaign || campaigns[0]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-green-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-6">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <img 
                 src="/ifehl-logo-new.png" 
-                alt="IFEHL" 
-                className="h-12 sm:h-16 w-auto object-contain" 
+                alt="IfEHL" 
+                className="h-10 sm:h-12 w-auto object-contain" 
               />
-              <div className="text-purple-800 font-bold text-sm sm:text-base leading-tight">
+              <div className="text-purple-800 font-bold text-xs sm:text-sm leading-tight hidden sm:block">
                 <div>INSTITUTE FOR EXCELLENCE IN</div>
                 <div>HEALTHCARE AND LEADERSHIP</div>
               </div>
             </div>
+            <Link
+              href="/admin"
+              className="text-sm text-gray-500 hover:text-purple-700 transition-colors"
+            >
+              Admin
+            </Link>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-800 via-purple-700 to-green-700 text-white py-16 sm:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-5xl font-bold mb-4">Event Registration Portal</h2>
-          <p className="text-lg sm:text-xl opacity-90 max-w-2xl mx-auto">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-800 to-green-800"></div>
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, white 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
+        <div className="relative container mx-auto px-4 py-20 sm:py-28 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span className="text-white/90 text-sm font-medium">Registration Open</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight">
+            IfEHL <span className="text-green-300">2025</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 max-w-xl mx-auto">
+            Building the next generation of Christian healthcare leaders
           </p>
         </div>
       </section>
 
-      {/* Campaigns Section */}
-      <main className="container mx-auto px-4 py-12">
+      {/* Campaign Section */}
+      <main className="container mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-10">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Register for the Next Cohort</h3>
-          <p className="text-gray-600">Select an event to register</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Register for the Next Cohort</h2>
         </div>
 
         {isLoading ? (
-          <div className="flex items-center justify-center py-16">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-purple-600"></div>
+          <div className="flex items-center justify-center py-20">
+            <div className="animate-spin rounded-full h-10 w-10 border-2 border-purple-600 border-t-transparent"></div>
           </div>
-        ) : campaigns.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-lg p-12 text-center max-w-lg mx-auto">
-            <div className="text-gray-300 mb-6">
-              <Calendar className="h-20 w-20 mx-auto" />
+        ) : !campaign ? (
+          <div className="max-w-lg mx-auto text-center py-16">
+            <div className="w-20 h-20 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Calendar className="h-10 w-10 text-purple-400" />
             </div>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">No Active Events</h4>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">No Active Cohorts</h3>
             <p className="text-gray-500">
-              There are no events with open registration at the moment. Please check back later.
+              Registration for the next cohort opens soon. Check back later.
             </p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {campaigns.map((campaign) => (
-              <Link
-                key={campaign.id}
-                href={`/campaigns/${campaign.slug}`}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Campaign Banner */}
-                <div className="h-48 relative overflow-hidden">
-                  {campaign.banner_image_url ? (
-                    <img 
-                      src={campaign.banner_image_url} 
-                      alt={campaign.title}
-                      className="w-full h-full object-contain bg-gradient-to-r from-purple-600 to-green-600"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-r from-purple-600 to-green-600"></div>
-                  )}
+          <div className="max-w-4xl mx-auto">
+            <Link
+              href={`/campaigns/${campaign.slug}`}
+              className="group block bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+            >
+              {/* Banner */}
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                {campaign.banner_image_url ? (
+                  <img 
+                    src={campaign.banner_image_url} 
+                    alt={campaign.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-r from-purple-700 to-green-600"></div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
                   {campaign.logo_image_url && (
                     <img 
                       src={campaign.logo_image_url} 
                       alt={campaign.title}
-                      className="absolute bottom-4 left-4 h-12 w-auto bg-white rounded-lg p-1 shadow"
+                      className="h-14 w-auto bg-white rounded-xl p-1.5 shadow-lg" 
                     />
                   )}
-                  {!campaign.is_registration_open && (
-                    <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      Registration Closed
-                    </div>
-                  )}
-                  {campaign.is_registration_open && (
-                    <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      Open
-                    </div>
-                  )}
+                  <div className={`px-3 py-1.5 rounded-full text-xs font-bold ${
+                    campaign.is_registration_open 
+                      ? 'bg-green-500 text-white' 
+                      : 'bg-red-500 text-white'
+                  }`}>
+                    {campaign.is_registration_open ? 'Registration Open' : 'Closed'}
+                  </div>
                 </div>
+              </div>
 
-                {/* Campaign Info */}
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">
-                    {campaign.title}
-                  </h4>
-                  {campaign.subtitle && (
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{campaign.subtitle}</p>
-                  )}
+              {/* Content */}
+              <div className="p-6 sm:p-8">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">
+                  {campaign.title}
+                </h3>
+                {campaign.subtitle && (
+                  <p className="text-gray-500 mb-6">{campaign.subtitle}</p>
+                )}
 
-                  <div className="space-y-2 text-sm text-gray-500 mb-4">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-purple-600" />
-                      <span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                  <div className="flex items-center gap-3 text-gray-600">
+                    <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
+                      <Calendar className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase tracking-wide">Date</p>
+                      <p className="text-sm font-medium">
                         {new Date(campaign.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                         {' - '}
                         {new Date(campaign.end_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-purple-600" />
-                      <span className="truncate">{campaign.location}</span>
+                      </p>
                     </div>
                   </div>
-
-                  <div className="flex items-center justify-between pt-4">
-                    <div className="text-purple-700 font-bold">
-                      ₦{Number(campaign.registration_fee).toLocaleString()}
+                  <div className="flex items-center gap-3 text-gray-600">
+                    <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-purple-600" />
                     </div>
-                    <div className="flex items-center gap-1 text-purple-600 font-medium group-hover:gap-2 transition-all">
-                      Register <ArrowRight className="h-4 w-4" />
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase tracking-wide">Venue</p>
+                      <p className="text-sm font-medium truncate">{campaign.location}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-600">
+                    <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center">
+                      <Users className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase tracking-wide">Fee</p>
+                      <p className="text-sm font-medium text-purple-700">
+                        ₦{Number(campaign.registration_fee).toLocaleString()}
+                      </p>
                     </div>
                   </div>
                 </div>
-              </Link>
-            ))}
+
+                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                  <p className="text-gray-400 text-sm">Click anywhere to register</p>
+                  <div className="flex items-center gap-2 text-purple-600 font-semibold group-hover:gap-3 transition-all">
+                    Register Now <ArrowRight className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © {new Date().getFullYear()} IfEHL. All rights reserved.
-          </p>
+      <footer className="border-t border-gray-100 mt-12">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <img 
+                src="/ifehl-logo-new.png" 
+                alt="IfEHL" 
+                className="h-8 w-auto object-contain" 
+              />
+              <span className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} IfEHL. All rights reserved.
+              </span>
+            </div>
+            <p className="text-gray-400 text-sm">
+              Institute for Excellence In Healthcare and Leadership
+            </p>
+          </div>
         </div>
       </footer>
     </div>
